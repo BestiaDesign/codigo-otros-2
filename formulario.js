@@ -24,9 +24,7 @@ formulario.onsubmit = function(e) {
     e.classList.add("error")
   }
 
-if (nombre.length > 0 
-  && (edad > 18 
-    && edad < 120) ) { // Se ordenaron elementos
+if (nombre.length > 0 && (edad > 18 && edad < 120) ) { // Se ordenaron elementos
   agregarInvitado(nombre, edad, nacionalidad)
   }
 }
