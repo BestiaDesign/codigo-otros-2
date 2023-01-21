@@ -1,8 +1,9 @@
-var formulario = document.querySelector("#form")
+var formulario = document.querySelector(".formulario") // Se quitó el # para llamar correctamente la clase y se cambio al nombre correcto
 
 formulario.onsubmit = function(e) {
 
-  e.prevent();
+  e.preventDefault(); // Se cambio por preventDefault para que funcione
+  //e.prevent();
   
   var n = formulario.elements[0]
   var e = formulario.elements[1]
@@ -25,17 +26,17 @@ formulario.onsubmit = function(e) {
 
 if (nombre.length > 0 
   && (edad > 18 
-    && edad < 120) ) {
+    && edad < 120) ) { // Se ordenaron elementos
   agregarInvitado(nombre, edad, nacionalidad)
   }
 }
 
-var botonBorrar = document.createElement("button")
+/* var botonBorrar = document.createElement("button")
 botonBorrar.textContent = "Eliminar invitado"
 botonBorrar.id = "boton-borrar"
 var corteLinea = document.createElement("br")
 document.body.appendChild(corteLinea)
-document.body.appendChild(botonBorrar);
+document.body.appendChild(botonBorrar); */ // Se comentó para eliminar el doble botón ya que este no tenía funcionalidad
 
 function agregarInvitado(nombre, edad, nacionalidad) {
 
@@ -55,7 +56,7 @@ function agregarInvitado(nombre, edad, nacionalidad) {
 var lista = document.getElementById("lista-de-invitados")
 
 var elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
+elementoLista.classList.add("elemento-lista") // Esta mal escrito, es add en ves de added
 lista.appendChild(elementoLista)
 
 var spanNombre = document.createElement("span")
@@ -78,10 +79,9 @@ elementoLista.appendChild(inputNombre)
 elementoLista.appendChild(espacio)
 }
 
-crearElemento("Nombre", nombre)
+//crearElemento("Nombre", nombre) // Duplica el nombre
 crearElemento("Edad", edad)
 crearElemento("Nacionalidad", nacionalidad)
-
 
 var botonBorrar = document.createElement("button")
 botonBorrar.textContent = "Eliminar invitado"
@@ -92,6 +92,6 @@ elementoLista.appendChild(botonBorrar);
 
  botonBorrar.onclick = function() {
 // this.parentNode.style.display = 'none';
-botonBorrar.parentNode.remove()
+elementoLista.remove()
   }
 }
